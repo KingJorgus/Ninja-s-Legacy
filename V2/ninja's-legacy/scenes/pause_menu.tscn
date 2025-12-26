@@ -1,0 +1,343 @@
+[gd_scene load_steps=9 format=3 uid="uid://0vrgmpm1rtw0"]
+
+[ext_resource type="Script" uid="uid://jhc2odwcboqj" path="res://scripts/pause_menu.gd" id="1_myx47"]
+[ext_resource type="Shader" uid="uid://ds00s81yhmtrd" path="res://scenes/pause_menu.gdshader" id="2_kukqi"]
+[ext_resource type="Script" uid="uid://dx3bt3woogll5" path="res://scripts/volume_slider.gd" id="3_kukqi"]
+[ext_resource type="AudioStream" uid="uid://v7yg8rf4x1d8" path="res://assets/Music/menu.mp3" id="4_5d2l8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uahpa"]
+shader = ExtResource("2_kukqi")
+shader_parameter/lod = 0.0
+
+[sub_resource type="Animation" id="Animation_7l7mv"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PauseMenuContainer:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PauseMenuContainer:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PauseMenuContainer:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PauseMenuContainer:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PauseMenuContainer:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_5d2l8"]
+resource_name = "blur"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0, 0.85, -0.050000004, -0.14166668, 0, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PauseMenuContainer:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.15, 0, 0.15, 0, 1, -0.050000004, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PauseMenuContainer:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.15, 0, 0.15, 0, 1, -0.050000004, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PauseMenuContainer:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.15, 0, 0.15, 0, 1, -0.050000004, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PauseMenuContainer:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0, 1, -0.050000004, -0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PauseMenuContainer:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v4r4p"]
+_data = {
+&"RESET": SubResource("Animation_7l7mv"),
+&"blur": SubResource("Animation_5d2l8")
+}
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_myx47")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_uahpa")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseMenuContainer" type="PanelContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -470.0
+offset_top = -292.0
+offset_right = 470.0
+offset_bottom = 292.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(475, 292)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenuContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenuContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="PauseMenuContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(314, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Resume"
+
+[node name="Restart" type="Button" parent="PauseMenuContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(314, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Restart"
+
+[node name="Quit" type="Button" parent="PauseMenuContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(314, 80)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PauseMenuContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Master" type="Label" parent="PauseMenuContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(314, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 32
+text = "Master"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Music" type="Label" parent="PauseMenuContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(314, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="SFX" type="Label" parent="PauseMenuContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(314, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PauseMenuContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="master_slider" type="HSlider" parent="PauseMenuContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(314, 80)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("3_kukqi")
+bus_name = "Master"
+
+[node name="music_slider" type="HSlider" parent="PauseMenuContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(314, 80)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("3_kukqi")
+bus_name = "Music"
+
+[node name="sfx_slider" type="HSlider" parent="PauseMenuContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(314, 80)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("3_kukqi")
+bus_name = "SFX"
+
+[node name="Help" type="Button" parent="PauseMenuContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+text = "Help"
+
+[node name="EnemiesDefeated" type="Label" parent="PauseMenuContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_v4r4p")
+}
+
+[node name="HelpContainer" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -476.0
+offset_top = -294.0
+offset_right = 471.0
+offset_bottom = 287.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="HelpContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "
+
+CONTROLS
+
+Move: AWSD  or Arrow Keys
+Jump: Spacebar or A or Up Arrow Key"
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="HelpContainer"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="Menu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5d2l8")
+bus = &"SFX"
+
+[connection signal="pressed" from="PauseMenuContainer/VBoxContainer/HBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenuContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="PauseMenuContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="PauseMenuContainer/VBoxContainer/Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="HelpContainer/Back" to="." method="_on_back_pressed"]

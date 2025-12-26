@@ -1,0 +1,98 @@
+[gd_scene load_steps=13 format=3 uid="uid://dpexwn53iq0km"]
+
+[ext_resource type="Script" uid="uid://c35r5rg5ofi1s" path="res://scripts/wind_area_2d.gd" id="1_grrnf"]
+[ext_resource type="Texture2D" uid="uid://iyhugiucgtjo" path="res://assets/Fan/Off.png" id="1_hqxbf"]
+[ext_resource type="Texture2D" uid="uid://dyk8c73px1t2r" path="res://assets/Fan/On (24x8).png" id="3_du7q2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohe3g"]
+size = Vector2(34, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0geff"]
+atlas = ExtResource("3_du7q2")
+region = Rect2(0, 0, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6tfx"]
+atlas = ExtResource("3_du7q2")
+region = Rect2(24, 0, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4bvr"]
+atlas = ExtResource("3_du7q2")
+region = Rect2(48, 0, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41ff3"]
+atlas = ExtResource("3_du7q2")
+region = Rect2(72, 0, 24, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_grrnf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hqxbf")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0geff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6tfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4bvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41ff3")
+}],
+"loop": false,
+"name": &"on",
+"speed": 15.0
+}]
+
+[sub_resource type="Curve" id="Curve_qpc7x"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tw5f2"]
+curve = SubResource("Curve_qpc7x")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qk1wg"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 100.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_tw5f2")
+
+[node name="VerticalFan" type="Area2D"]
+light_mask = 3
+collision_mask = 3
+script = ExtResource("1_grrnf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 3
+position = Vector2(0.5, -26)
+shape = SubResource("RectangleShape2D_ohe3g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_grrnf")
+animation = &"on"
+frame = 3
+frame_progress = 0.45947644
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 16
+lifetime = 5.0
+randomness = 0.2
+trail_enabled = true
+trail_lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_qk1wg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

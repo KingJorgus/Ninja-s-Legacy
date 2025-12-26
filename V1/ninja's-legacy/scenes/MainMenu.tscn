@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4fn6icfu6t4v"]
+
+[ext_resource type="Texture2D" uid="uid://e3tajgirnjx5" path="res://assets/menu/background_menu.jpg" id="1_2wh52"]
+[ext_resource type="Script" uid="uid://bayayqa0wgmpg" path="res://scripts/main_menu.gd" id="1_ow34m"]
+[ext_resource type="Texture2D" uid="uid://daatdgyogxiqh" path="res://assets/menu/Logo.png" id="1_yqorp"]
+[ext_resource type="FontFile" uid="uid://c6502qj5dx42l" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_ow34m"]
+
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_ow34m")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -224.0
+offset_top = -168.5
+offset_right = 224.0
+offset_bottom = 168.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2wh52")
+
+[node name="Logo" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.0
+offset_top = -124.0
+offset_right = 272.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_yqorp")
+
+[node name="level1" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -271.0
+offset_top = 75.0
+offset_right = -37.5
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_ow34m")
+theme_override_font_sizes/font_size = 32
+text = "Level 1"
+
+[node name="level2" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 34.0
+offset_top = 75.0
+offset_right = 267.5
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_ow34m")
+theme_override_font_sizes/font_size = 32
+text = "Level 2"
+
+[connection signal="pressed" from="level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="level2" to="." method="_on_level_2_pressed"]
